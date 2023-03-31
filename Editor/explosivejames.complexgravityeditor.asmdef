@@ -1,0 +1,18 @@
+{
+    "name": "explosivejames.complexgravityeditor",
+    "rootNamespace": "ComplexGravityEditor",
+    "references": [
+        "GUID:9f370f083c671414c9b4b4b6d28c0698"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

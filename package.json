@@ -1,0 +1,14 @@
+{
+  "name": "explosivejames.complexgravity",
+  "version": "0.9.1",
+  "displayName": "Complex Gravity",
+  "description": "A framework for building complex gravity fields.",
+  "keywords": [
+    "complex",
+    "gravity"
+  ],
+  "author": {
+    "name": "Explosive James",
+    "email": "theexplosivejames@gmail.com"
+  }
+}
