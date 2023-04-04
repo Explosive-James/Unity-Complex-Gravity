@@ -43,8 +43,8 @@ namespace ComplexGravity.DataTypes
             /* If the global settings are changed the _strength value won't update until it is drawn in the inspector again 
              * however this should always match the global values. But OnBeforeSerialize gets called on all instances 
              * including during a build which gives us one last chance to update the variable to the correct value.*/
-            if (SettingsManager.Settings.presetStrengths.Length > _preset - 1) {
-                _strength = SettingsManager.Settings.presetStrengths[_preset - 1].strength;
+            if (SettingsManager.Settings.strengths.Length > _preset - 1) {
+                _strength = SettingsManager.Settings.strengths[_preset - 1].strength;
             }
 #endif
         }

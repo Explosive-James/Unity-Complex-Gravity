@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 using ComplexGravityEditor.Settings.DataTypes;
+using ComplexGravity.DataTypes;
 using System;
 using System.IO;
 using UnityEngine;
@@ -44,7 +45,11 @@ namespace ComplexGravityEditor.Settings
 
             return new GravitySettings() {
 
-                presetStrengths = new PresetGravityStrength[] {
+                physicsLayers = int.MaxValue,
+                ignoreGlobalGravity = true,
+                gravityStrength = new GravityStrength(9.81f),
+
+                strengths = new PresetGravityStrength[] {
                     new PresetGravityStrength("Low", 4.90f),
                     new PresetGravityStrength("Normal", 9.81f),
                     new PresetGravityStrength("High", 19.62f),

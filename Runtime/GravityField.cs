@@ -20,31 +20,31 @@ namespace ComplexGravity
         /// </summary>
         [field: Header("Physics Settings")]
         [field: SerializeField]
-        public LayerMask PhysicsLayer { get; private set; } = int.MaxValue;
+        public LayerMask PhysicsLayer { get; set; } = int.MaxValue;
         /// <summary>
         /// Should rigidbodies inside the gravity field ignore global gravity.
         /// </summary>
         [field: SerializeField]
-        public bool IgnoreGlobalGravity { get; private set; } = true;
+        public bool IgnoreGlobalGravity { get; set; } = true;
 
         /// <summary>
         /// Higher priorities prevent lower priority gravity fields from influencing a rigidbody.
         /// </summary>
         [field: Header("Gravity Settings")]
         [field: SerializeField]
-        public int Priority { get; private set; } = 0;
+        public int Priority { get; set; } = 0;
         /// <summary>
         /// The maximum force to apply to a rigidbody.
         /// </summary>
         [field: SerializeField]
-        public GravityStrength GravityStrength { get; private set; } = new GravityStrength(9.81f);
+        public GravityStrength GravityStrength { get; set; } = new GravityStrength(9.81f);
 
         /// <summary>
         /// The range of the gravity field.
         /// </summary>
         [field: Header("Size Settings")]
         [field: SerializeField]
-        public FadedRange GravityRange { get; private set; } = new FadedRange(0, 5, 0, 1);
+        public FadedRange GravityRange { get; set; } = new FadedRange(0, 5, 0, 1);
         #endregion
 
         #region Unity Functions

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using ComplexGravity;
+using ComplexGravityEditor.Settings;
+using ComplexGravityEditor.Settings.DataTypes;
 
 namespace ComplexGravityEditor
 {
@@ -37,7 +39,12 @@ namespace ComplexGravityEditor
                 gravityField.transform.position = GetSpawnPosition();
             }
 
-            gravityField.AddComponent<T>();
+            GravitySettings settings = SettingsManager.Settings;
+            GravityField field = gravityField.AddComponent<T>();
+
+            field.PhysicsLayer = settings.physicsLayers;
+            field.IgnoreGlobalGravity = settings.ignoreGlobalGravity;
+            field.GravityStrength = settings.gravityStrength;
 
             Undo.RegisterCreatedObjectUndo(gravityField, $"Create {gravityField.name}");
             Selection.activeGameObject = gravityField;

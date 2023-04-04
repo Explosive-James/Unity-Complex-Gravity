@@ -17,13 +17,16 @@ namespace ComplexGravityEditor.PropertyDrawers
             position = EditorGUI.PrefixLabel(position, GUIUtility.GetControlID(FocusType.Passive), label);
             position.height = EditorGUIUtility.singleLineHeight;
 
+            int indent = EditorGUI.indentLevel;
+            EditorGUI.indentLevel = 0;
+
             SerializedProperty presetProperty = property.FindPropertyRelative("_preset");
             SerializedProperty strengthProperty = property.FindPropertyRelative("_strength");
 
             GravitySettings settings = SettingsManager.Settings;
             string[] displayNames = GetPresetNames(settings);
 
-            if (presetProperty.intValue > settings.presetStrengths.Length) {
+            if (presetProperty.intValue > settings.strengths.Length) {
                 presetProperty.intValue = 0;
             }
 
@@ -31,13 +34,15 @@ namespace ComplexGravityEditor.PropertyDrawers
             position.y += EditorGUIUtility.singleLineHeight * 1.1f;
 
             if(presetProperty.intValue != 0) {
-                strengthProperty.floatValue = settings.presetStrengths[presetProperty.intValue - 1].strength;
+                strengthProperty.floatValue = settings.strengths[presetProperty.intValue - 1].strength;
             }
 
             EditorGUI.BeginDisabledGroup(presetProperty.intValue != 0);
             EditorGUI.PropertyField(position, strengthProperty, GUIContent.none);
 
             EditorGUI.EndDisabledGroup();
+
+            EditorGUI.indentLevel = indent;
             EditorGUI.EndProperty();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
@@ -49,11 +54,11 @@ namespace ComplexGravityEditor.PropertyDrawers
         #region Private Functions
         private string[] GetPresetNames(GravitySettings settings)
         {
-            string[] results = new string[settings.presetStrengths.Length + 1];
+            string[] results = new string[settings.strengths.Length + 1];
             results[0] = "Custom";
 
             for (int i = 0; i < results.Length - 1; i++)
-                results[i + 1] = settings.presetStrengths[i].name;
+                results[i + 1] = settings.strengths[i].name;
 
             return results;
         }

@@ -28,18 +28,18 @@ namespace ComplexGravityEditor.PropertyDrawers
             EditorGUI.PropertyField(position, minimumRangeProp);
             minimumRangeProp.floatValue = Mathf.Clamp(minimumRangeProp.floatValue, 0, maximumRangeProp.floatValue);
 
-            position.y += EditorGUIUtility.singleLineHeight * 1.2f;
+            position.y += EditorGUIUtility.singleLineHeight;
 
             float minimumFadeValue = EditorGUI.Slider(position, new GUIContent(minimumFadeProp.displayName),
                 minimumFadeProp.floatValue, 0, maximumFadeDelta);
             minimumFadeProp.floatValue = Mathf.Clamp(minimumFadeValue, 0, maximumFadeDelta - maximumFadeProp.floatValue);
 
-            position.y += EditorGUIUtility.singleLineHeight * 1.2f;
+            position.y += EditorGUIUtility.singleLineHeight * 1.5f;
 
             EditorGUI.PropertyField(position, maximumRangeProp);
             maximumRangeProp.floatValue = Mathf.Max(minimumRangeProp.floatValue, maximumRangeProp.floatValue);
 
-            position.y += EditorGUIUtility.singleLineHeight * 1.2f;
+            position.y += EditorGUIUtility.singleLineHeight;
 
             float maximumFadeValue = EditorGUI.Slider(position, new GUIContent(maximumFadeProp.displayName),
                 maximumFadeProp.floatValue, 0, maximumFadeDelta);
