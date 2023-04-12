@@ -14,21 +14,23 @@ namespace ComplexGravityEditor.Settings.DataTypes
         /// <summary>
         /// The default physics layers the gravity field will interact with.
         /// </summary>
-        [Header("Default Field Settings:")]
+        [Header("Default Physics Settings:")]
         public LayerMask physicsLayers;
         /// <summary>
         /// The default ignore global gravity setting for the gravity field.
         /// </summary>
         public bool ignoreGlobalGravity;
+
         /// <summary>
         /// The default strength of a gravity field.
         /// </summary>
+        [Header("Default Strength Settings:")]
         public GravityStrength gravityStrength;
 
         /// <summary>
         /// The preset gravity names and strengths for the GravityStrength type.
         /// </summary>
-        [Header("Preset Strength Settings:")]
+        [Space, Header("Preset Strength Values:")]
         public PresetGravityStrength[] strengths;
         #endregion
     }

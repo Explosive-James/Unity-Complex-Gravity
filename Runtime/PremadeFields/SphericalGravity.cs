@@ -32,7 +32,7 @@ namespace ComplexGravity
         public override Vector3 GetGlobalGravityForce(Vector3 globalPosition)
         {
             Vector3 localPosition = transform.position - globalPosition;
-            localPosition = VectorExtensions.Divide(localPosition, transform.lossyScale);
+            localPosition = VectorExtensions.Divide(localPosition, transform.lossyScale.Absolute());
 
             float distance = localPosition.magnitude;
             return GravityStrength.Value * GravityRange.Evaluate(distance) * (localPosition / distance);

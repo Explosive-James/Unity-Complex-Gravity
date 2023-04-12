@@ -14,12 +14,13 @@ namespace ComplexGravity.DataTypes
         #region Data
         [SerializeField, HideInInspector] int _preset = 0;
         [SerializeField, HideInInspector] float _strength = 9.81f;
+        [SerializeField, HideInInspector] bool _invert = false;
         #endregion
 
         #region Properties
         public float Value {
             get {
-                return _strength;
+                return _invert ? -_strength : _strength;
             }
         }
         #endregion
@@ -28,6 +29,11 @@ namespace ComplexGravity.DataTypes
         public GravityStrength(float strength)
         {
             _strength = strength;
+        }
+        public GravityStrength(float strength, bool invert)
+        {
+            _strength = strength;
+            _invert = invert;
         }
         #endregion
 

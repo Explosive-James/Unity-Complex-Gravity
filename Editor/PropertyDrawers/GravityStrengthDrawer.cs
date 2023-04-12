@@ -22,6 +22,7 @@ namespace ComplexGravityEditor.PropertyDrawers
 
             SerializedProperty presetProperty = property.FindPropertyRelative("_preset");
             SerializedProperty strengthProperty = property.FindPropertyRelative("_strength");
+            SerializedProperty invertProperty = property.FindPropertyRelative("_invert");
 
             GravitySettings settings = SettingsManager.Settings;
             string[] displayNames = GetPresetNames(settings);
@@ -41,13 +42,16 @@ namespace ComplexGravityEditor.PropertyDrawers
             EditorGUI.PropertyField(position, strengthProperty, GUIContent.none);
 
             EditorGUI.EndDisabledGroup();
+            position.y += EditorGUIUtility.singleLineHeight * 1.1f;
+
+            EditorGUI.PropertyField(position, invertProperty, new GUIContent("Invert Strength"));
 
             EditorGUI.indentLevel = indent;
             EditorGUI.EndProperty();
         }
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            return EditorGUIUtility.singleLineHeight * 2.1f;
+            return EditorGUIUtility.singleLineHeight * 2.3f;
         }
         #endregion
 

@@ -39,8 +39,10 @@ namespace ComplexGravityEditor.Settings
             if (File.Exists(directory)) {
 
                 string payloadText = File.ReadAllText(directory);
+                GravitySettings settings = JsonUtility.FromJson<GravitySettings>(payloadText);
 
-                return JsonUtility.FromJson<GravitySettings>(payloadText);
+                settings.strengths ??= new PresetGravityStrength[0];
+                return settings;
             }
 
             return new GravitySettings() {
